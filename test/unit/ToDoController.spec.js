@@ -3,9 +3,15 @@ describe('ToDoController', function() {
 
   var ctrl;
 
-  beforeEach(inject(function($controller, _ToDoFactory_) {
+  beforeEach(inject(function($controller, _ToDoFactory_, $httpBackend) {
     ctrl = $controller('ToDoController');
     ToDoFactory = _ToDoFactory_;
+    httpBackend = _httpBackend_;
+
+    httpBackend.expectGet('http://quiet-beach-24792.herokuapp.com/todos.json').respond(toDoData);
+
+    httpBackend.flush();
+
   }));
 
   it('initializes with two todos', function() {

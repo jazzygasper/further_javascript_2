@@ -32,4 +32,5 @@ describe('Todos tracker', function() {
       last.element(by.css('.Complete')).click();
       expect(last.getText()).toMatch('ToDo3 true');
     });
+
 });
