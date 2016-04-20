@@ -1,9 +1,8 @@
-toDoApp.controller('ToDoController', [function() {
-  this.todo = [{text: 'ToDo1', completed: true}, {text: 'ToDo2', completed: false}];
+toDoApp.controller('ToDoController', ['ToDoFactory', function(ToDoFactory) {
+  this.todo = [new ToDoFactory('ToDo1', true), new ToDoFactory('ToDo2')];
 
   this.addToDo = function(todoText) {
-    var newtodo = {text: todoText, completed: false};
-    this.todo.push(newtodo);
+    this.todo.push(new ToDoFactory(todoText));
   };
 
   this.removeToDo = function() {

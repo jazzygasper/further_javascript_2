@@ -3,13 +3,15 @@ describe('ToDoController', function() {
 
   var ctrl;
 
-  beforeEach(inject(function($controller) {
+  beforeEach(inject(function($controller, _ToDoFactory_) {
     ctrl = $controller('ToDoController');
+    ToDoFactory = _ToDoFactory_;
   }));
 
   it('initializes with two todos', function() {
-    var todo = [{text: 'ToDo1', completed: true}, {text: 'ToDo2', completed: false}]
-    expect(ctrl.todo).toEqual(todo)
+    var todo1 = new ToDoFactory('ToDo1', true);
+    var todo2 = new ToDoFactory('ToDo2');
+    expect(ctrl.todo).toEqual([todo1, todo2]);
   });
 
   it('adds todos', function() {
