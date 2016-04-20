@@ -13,6 +13,9 @@
       {{ todo.text }}
       {{ todo.completed }}
       </li>
+      <input id='input' type='text' ng-model='todoText'>
+      <button id='Submit' ng-click='controller.addToDo(todoText)'>Submit</button>
+      <button id='Delete' ng-click='controller.removeToDo()'>Delete</button>
     </div>
   </body>
 </html>
