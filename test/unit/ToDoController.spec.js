@@ -6,8 +6,4 @@ describe('ToDoController', function() {
   beforeEach(inject(function($controller) {
     ctrl = $controller('ToDoController');
   }));
-
-  it('initialises with a toDo', function() {
-    expect(ctrl.todo).toEqual("ToDo1");
-  });
 });

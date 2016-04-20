@@ -9,7 +9,10 @@
   </head>
   <body>
     <div id='todo' ng-controller='ToDoController as controller'>
-      {{ controller.todo }}
+      <li ng-repeat='todo in controller.todo'>
+      {{ todo.text }}
+      {{ todo.completed }}
+      </li>
     </div>
   </body>
 </html>
